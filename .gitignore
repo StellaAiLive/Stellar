@@ -1,0 +1,11 @@
+.db
+.flask_session
+.env
+conversation_history.db
+__pycache__/file_scanning.cpython-312.pyc
+__pycache__/webscrapper.cpython-312.pyc
+sandbox_runs
+outputs
+uploads
+encryption.key
+keys.env
