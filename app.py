@@ -1563,7 +1563,7 @@ def refine_stream():
         def error_stream(): yield f"data: {json.dumps({'status': 'Error: Invalid query data retrieved.', 'error': True})}\n\n"
         return Response(stream_with_context(error_stream()), mimetype='text/event-stream', status=500)
 
-    fallback_model="us.amazon.nova-lite-v1:0"
+    fallback_model="gemini-2.5-pro"
     max_model_attempts = 2
     user_message_id = insert_message(chat_id, "user", user_query_from_frontend, user_query_for_name=user_query_from_frontend)
     if not user_message_id:
@@ -1721,7 +1721,7 @@ def search_stream():
         def error_stream(): yield f"data: {json.dumps({'status': 'Error: Invalid query data retrieved.', 'error': True})}\n\n"
         return Response(stream_with_context(error_stream()), mimetype='text/event-stream', status=500)
 
-    fallback_model="us.amazon.nova-lite-v1:0"
+    fallback_model="gemini-2.5-pro"
     max_model_attempts = 2
     user_message_id = insert_message(chat_id, "user", user_query, user_query_for_name=user_query)
     if not user_message_id:
@@ -2001,7 +2001,7 @@ def cosmos_stream():
         def error_stream(): yield f"data: {json.dumps({'status': 'Error: Invalid query data retrieved.', 'error': True})}\n\n"
         return Response(stream_with_context(error_stream()), mimetype='text/event-stream', status=500)
 
-    fallback_model="us.amazon.nova-lite-v1:0"
+    fallback_model="gemini-2.5-pro"
     max_model_attempts = 2
     user_message_id = insert_message(chat_id, "user", user_query, user_query_for_name=user_query)
     if not user_message_id:
@@ -3806,3 +3806,4 @@ cleanup_stale_containers()
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5013))
     app.run(host='0.0.0.0', port=port, debug=False, threaded=True)
+
